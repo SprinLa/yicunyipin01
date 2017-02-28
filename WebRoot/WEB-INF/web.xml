@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
+  <display-name>yicunyipin</display-name>
+  <welcome-file-list>
+    <welcome-file>index.jsp</welcome-file>  
+  </welcome-file-list>
+  
+  <context-param>  
+   <param-name>xmlFile</param-name>  
+   <param-value>WEB-INF/classes/proxool.xml</param-value>  
+</context-param>  
+<listener>  
+   <listener-class>com.yicunyipin.util.ProxoolListener</listener-class>  
+</listener>  
+  
+  <!-- 定义Spring监听器，加载Spring 用于初始化ApplicationContext对象    bean工厂 -->
+  <listener>  
+      <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>  
+  </listener>  
+  
+  <!-- 添加对spring的支持 -->  
+  <context-param>  
+    <param-name>contextConfigLocation</param-name>  
+    <param-value>classpath:applicationContext.xml</param-value>  
+  </context-param>  
+    
+    
+   <!-- 初始化系统action -->
+  <listener>  
+      <listener-class>com.yicunyipin.action.InitAction</listener-class>  
+  </listener> 
+    
+<!--     
+   字符编码过滤器     
+<filter>
+       <filter-name>encodingFilter</filter-name>
+    <filter-class>com.yicunyipin.util.EncodingConvertFilter</filter-class>
+</filter>
+    <filter-mapping>
+       <filter-name>encodingFilter</filter-name>
+       <url-pattern>/*</url-pattern>
+ </filter-mapping>
+     -->
+    
+    
+    
+    
+  <!-- 添加对struts2的支持 -->  
+  <filter>  
+    <filter-name>struts2</filter-name>  
+    <filter-class>org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter</filter-class>  
+  </filter>   
+  
+  <filter-mapping>  
+    <filter-name>struts2</filter-name>  
+    <url-pattern>*.action</url-pattern>  
+  </filter-mapping>  
+  
+  
+  
+  <!-- Session延迟加载到页面  --> 
+   <filter>  
+    <filter-name>openSessionInViewFilter</filter-name>  
+    <filter-class>org.springframework.orm.hibernate4.support.OpenSessionInViewFilter</filter-class>  
+    <init-param>  
+      <param-name>singleSession</param-name>  
+      <param-value>true</param-value>  
+    </init-param>  
+  </filter>  
+    
+   <filter-mapping>  
+    <filter-name>openSessionInViewFilter</filter-name>  
+    <url-pattern>*.action</url-pattern>  
+  </filter-mapping>  
+    
+    
+    
+ <!-- ckfinder文件上传配置 start -->
+	<servlet>
+		<servlet-name>ConnectorServlet</servlet-name>
+		<servlet-class>com.ckfinder.connector.ConnectorServlet</servlet-class>
+		<init-param>
+			<param-name>XMLConfig</param-name>
+			<param-value>/WEB-INF/config.xml</param-value>
+		</init-param>
+		<init-param>
+			<param-name>debug</param-name>
+			<param-value>false</param-value>
+		</init-param>
+		<load-on-startup>2</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ConnectorServlet</servlet-name>
+		<url-pattern>  
+            /ckfinder/core/connector/java/connector.java  
+        </url-pattern>
+	</servlet-mapping>
+	<filter>
+		<filter-name>FileUploadFilter</filter-name>
+		<filter-class>com.ckfinder.connector.FileUploadFilter</filter-class>
+		<init-param>
+			<param-name>sessionCookieName</param-name>
+			<param-value>JSESSIONID</param-value>
+		</init-param>
+		<init-param>
+			<param-name>sessionParameterName</param-name>
+			<param-value>jsessionid</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>FileUploadFilter</filter-name>
+		<url-pattern>  
+            /ckfinder/core/connector/java/connector.java  
+         </url-pattern>
+	</filter-mapping>
+	<!-- ckfinder文件上传配置 end -->
+ 
+    <!--404处理 -->
+    <error-page>
+        <error-code>404</error-code>
+        <location>/404.jsp</location>
+    </error-page>
+  
+      
+</web-app>

@@ -1,0 +1,11 @@
+eclipse.preferences.version=1
+encoding//WebRoot/background/assets/css/amazeui.flat.css=UTF-8
+encoding//WebRoot/js/login/Code.js=UTF-8
+encoding//WebRoot/js/registerJS/Code.js=UTF-8
+encoding//src/applicationContext.xml=UTF-8
+encoding//src/com/yicunyipin/action/AdminAction.java=UTF-8
+encoding//src/com/yicunyipin/action/PictureAction.java=UTF-8
+encoding//src/com/yicunyipin/action/PolicyAction.java=gbk
+encoding//src/com/yicunyipin/action/ProductAction.java=UTF-8
+encoding//src/com/yicunyipin/action/UserAction.java=UTF-8
+encoding//src/com/yicunyipin/util/DesPasswordBasicDataSource.java=UTF-8

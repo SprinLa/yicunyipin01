@@ -1,0 +1,158 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>  
+<!DOCTYPE struts PUBLIC  
+    "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"  
+    "http://struts.apache.org/dtds/struts-2.3.dtd">  
+      
+<struts>  
+<constant name="struts.multipart.saveDir" value="/tmp"/>
+    <constant name="struts.i18n.encoding" value="UTF-8" />  
+    <constant name="struts.action.extension" value="action" />  
+
+
+	<package name="yicunyipin" namespace="/" extends="struts-default">  
+         <default-action-ref name="errorAction"></default-action-ref> 
+         <action name="product_*" class="com.yicunyipin.action.TBProductAction" method="{1}">
+        	<result name="success">jsp/productMain.jsp</result>
+        	<result name="productDetil">jsp/singleProductMain.jsp</result>
+       		<result name="productPreSave">/background/mainTemp.jsp</result>
+       		<result name="productmodify">/background/mainTemp.jsp</result>
+       		<result name="huiyuan">jsp/huiyuMain.jsp</result>
+			 <result name="orderFill">jsp/singleProductMain.jsp</result>
+			 <result name="productSave" type="redirectAction">product_showProductByUser.action</result>
+        </action>
+        
+        <action name="refresh_*" class="com.yicunyipin.action.RefreshAction" method="{1}">
+			<result name="success">index.jsp</result>
+		</action>
+        
+        <action name="picture_*" class="com.yicunyipin.action.PictureAction" method="{1}">
+        	<result name="success">jsp/pictureMain.jsp</result>
+        	<result name="productDetil">jsp/singleProductMain.jsp</result>
+       		<result name="productPreSave">/background/mainTemp.jsp</result>
+       <result name="productSave" type="redirectAction">product_showProductByUser.action</result>
+        </action>
+        
+        
+        
+        <action name="news_*" class="com.yicunyipin.action.NewsAction" method="{1}">
+        	<result name="success">jsp/newsMain.jsp</result>
+        	<result name="newsPreSave">/background/mainTemp.jsp</result>
+        </action>
+         <action name="newsType_*" class="com.yicunyipin.action.NewsTypeAction" method="{1}">  
+        </action>
+        
+        
+        
+          <action name="user_*" class="com.yicunyipin.action.UserAction" method="{1}">
+        	<result name="register_success">jsp/reg-result.jsp</result>
+        	<result name="error">jsp/login.jsp</result>
+        	<result name="login">/index.jsp</result>
+        	<result name="logout" type="redirect">index.jsp</result>
+        	<result name="viplogin">/background/mainTemp.jsp</result>
+        	<result name="userPreSave">/background/mainTemp.jsp</result>
+        	<result name="userPreSave2">/background/mainTemp.jsp</result>
+        	<result name="error1">jsp/login.jsp</result>
+       		<result name="modify" type="redirectAction">user_userPreSave.action</result>
+        </action>
+        
+        
+         <action name="address_*" class="com.yicunyipin.action.AddressAction"   method="{1}">
+              
+          </action>
+        
+        <action name="category_*" class="com.yicunyipin.action.CategoryAction"   method="{1}">
+              
+          </action>
+          
+        <!-- 购物车 -->
+        <action name="shopping_*" class="com.yicunyipin.action.ShoppingAction" method="{1}">  
+            <result name="success">jsp/shoppingMain.jsp</result> 
+        </action>
+        
+        <action name="order_*" class="com.yicunyipin.action.TBOrderAction" method="{1}">
+        	<result name="success">jsp/shoppingMain.jsp</result>
+        	<result name="orderlist">jsp/singleOrderMain.jsp</result>
+        	<result name="login">jsp/login.jsp</result>
+        	<result name="orderSelect">/background/mainTemp.jsp</result>
+        	<result name="orderList">/background/mainTemp.jsp</result>
+        </action>
+          
+          <action name="addCk" class="com.anm.action.AddCk">
+			<result name="success">/show.jsp</result>
+			<result name="input">/index.jsp</result>
+		</action> 
+          
+          
+          <!--   管理员后台 -->
+           <action name="admin_*" class="com.yicunyipin.action.AdminAction" method="{1}">
+         <result name="adminLogin">admin/main.jsp</result>
+          <result name="success" type="redirect">/admin/manager.jsp</result>
+          <result name="failed">/admin/login.jsp</result>
+          <result name="logout">/admin/login.jsp</result>
+          </action> 
+          
+           <!--   管理员后台商品大类 -->
+         <action name="productBigType_*" class="com.yicunyipin.action.ProductBigTypeAction" method="{1}">  
+        </action>
+         <!--   管理员后台商品小类 -->
+        <action name="productSmallType_*" class="com.yicunyipin.action.ProductSmallTypeAction" method="{1}">  
+        </action>  
+        <!--   管理员刷新系统     -->
+          <action name="sys_*" class="com.yicunyipin.action.SysAction" method="{1}">  
+        </action>
+         <action name="contact_*" class="com.yicunyipin.action.ContactAction" method="{1}">
+        	<result name="success">jsp/contactUS.jsp</result>
+        	<result name="map">jsp/mapMain.jsp</result>
+        </action>
+        <action name="errorAction" class="com.yicunyipin.action.ErrorAction" >
+		 	<result name="error">/404.jsp</result>
+		</action>
+        
+        <!--shaoshan start  -->
+      <!-- 产品政策-->
+      <action name="policy_*" class="com.yicunyipin.action.PolicyAction" method="{1}">
+        	<result name="success">jsp/policyMain.jsp</result>
+        	<result name="newsPreSave">/background/mainTemp.jsp</result>
+       </action>
+		
+		
+		<action name="tbuser_*" class="com.yicunyipin.action.TBUserAction" method="{1}">
+       		<result name="register_success">jsp/reg-result.jsp</result>
+        	<result name="error">jsp/login.jsp</result>
+        	<result name="login">/index.jsp</result>
+        	<result name="logout" type="redirect">index.jsp</result>
+        	<result name="userPreSave">/background/mainTemp.jsp</result>
+        	<result name="userPassword">/background/mainTemp.jsp</result>
+        	<result name="userPreSave2">/background/mainTemp.jsp</result>
+        	<result name="error1">jsp/login.jsp</result>
+       		<result name="modifySuccess">/background/mainTemp.jsp</result>
+       		<result name="verifiedStatus">/background/mainTemp.jsp</result>
+        </action>
+         <action name="tbproduct_*" class="com.yicunyipin.action.TBProductAction" method="{1}">
+        	<result name="success">jsp/productMain.jsp</result>
+        	<result name="productDetil">jsp/singleProductMain.jsp</result>
+       		<result name="productPreSave">/background/mainTemp.jsp</result>
+       		<result name="productmodify">/background/mainTemp.jsp</result>
+       		<result name="huiyuan">jsp/huiyuMain.jsp</result>
+       		<result name="productSave">/background/mainTemp.jsp</result>
+			 <result name="orderFill">jsp/singleProductMain.jsp</result>
+
+		 </action>
+		 <action name="imageUpload" class="com.yicunyipin.action.ImageUploadAction">
+		 </action>
+<!-- 		 <action name="tborder_*" class="com.yicunyipin.action.TBOrderAction" method="{1}">
+		 </action> -->
+        
+         <!--shaoshan end  -->
+        
+    </package>  
+    
+    
+     <!--action的404处理 -->
+   <!--  <package name="error" extends="struts-default">
+        <default-action-ref name="notFound" />
+        <action name="notFound">
+            <result>jsp/404.jsp</result>
+        </action>
+    </package> -->
+</struts>   

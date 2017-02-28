@@ -1,0 +1,21 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="yicunyipin01:war exploded">
+    <output-path>$PROJECT_DIR$/classes/artifacts/yicunyipin01_war_exploded</output-path>
+    <root id="root">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="yicunyipin01" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="module" name="ckeditor-java-core-3.5.3.jar" module-name="yicunyipin01" />
+          <element id="library" level="module" name="CKFinder-2.3.1.jar" module-name="yicunyipin01" />
+          <element id="library" level="module" name="CKFinderPlugin-FileEditor-2.3.1.jar" module-name="yicunyipin01" />
+          <element id="library" level="module" name="CKFinderPlugin-ImageResize-2.3.1.jar" module-name="yicunyipin01" />
+          <element id="library" level="module" name="thumbnailator-0.4.5.jar" module-name="yicunyipin01" />
+          <element id="library" level="project" name="lib" />
+        </element>
+      </element>
+      <element id="javaee-facet-resources" facet="yicunyipin01/web/Web" />
+    </root>
+  </artifact>
+</component>
